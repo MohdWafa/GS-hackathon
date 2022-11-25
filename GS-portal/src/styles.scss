@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Overpass');
+
+//store it in variable first
+$font-main: 'Overpass', sans-serif;
+* {
+  font-family: $font-main;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+  }
