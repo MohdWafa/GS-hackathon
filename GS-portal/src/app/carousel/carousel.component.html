@@ -1,0 +1,26 @@
+<!-- carousel -->
+<div class="carousel">
+    <div *ngIf="shownObject.text && !finish" class="question-container">
+        <div class="question-text">{{shownObject.text}}</div>
+        <div class="question-options">
+           <div *ngFor="let enum of shownObject.options">
+    <label class="container" for="enum_answer_{{enum.text}}">
+    <input  id="enum_answer_{{enum.text}}" [value]='enum.value' type="radio" name="enums" [(ngModel)]="selectedOption">
+    {{enum.text}}
+    <span class="checkmark"></span>
+  </label>
+</div>
+        </div>
+        <div class="question-next" (click)="onNextClick()">NEXT</div>
+      </div>
+      <div *ngIf="!shownObject.options && !finish" class="info-container">
+        <div class="info-text">{{shownObject}}</div>
+        <div *ngIf="!(currentSlide == q.length - 1)" class="question-next" (click)="onNextClickInfo()">NEXT</div>
+        <div *ngIf="currentSlide == q.length - 1" class="question-next" (click)="finishQuiz()">FINISH</div>
+      </div>
+
+      <div *ngIf="finish" class="info-container">
+        <div class="info-text">THANK YOU FOR PLAYING!</div>
+        <div class="question-next" (click)="exitQuiz()">EXIT</div>
+      </div>
+  </div>
